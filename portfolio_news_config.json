@@ -154,12 +154,13 @@
       ]
     },
     {
-      "name": "LS Global Greenway 블라인드펀드",
-      "type": "PEF LP",
+      "name": "LS Global Greenway 블라인드펀드 (영국 ESS)",
+      "type": "해외에쿼티",
       "keywords": [
-        "LS Global Greenway",
-        "LS 친환경",
-        "LS그룹 에너지"
+        "영국 ESS",
+        "UK energy storage",
+        "영국 에너지저장",
+        "영국 배터리 저장"
       ]
     },
     {
@@ -190,11 +191,13 @@
       ]
     },
     {
-      "name": "베인캐피탈 블라인드펀드",
-      "type": "크레딧펀드 LP",
+      "name": "베인캐피탈 PD펀드 (Private Credit)",
+      "type": "Private Credit LP",
       "keywords": [
-        "Bain Capital Credit",
-        "베인캐피탈"
+        "private credit 시장",
+        "사모대출 펀드",
+        "private debt 전망",
+        "다이렉트 렌딩"
       ]
     },
     {
@@ -484,12 +487,13 @@
       ]
     },
     {
-      "name": "(주)한화 리츠",
+      "name": "(주)한화 보증 ABL",
       "type": "ABL",
       "keywords": [
-        "한화 뉴스테이",
-        "한화 임대리츠",
-        "한화 신용등급"
+        "한화 신용등급",
+        "한화 재무",
+        "한화그룹 지주",
+        "한화 공시"
       ]
     },
     {
