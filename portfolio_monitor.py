@@ -280,7 +280,7 @@ def main():
     today_str = datetime.now(KST).strftime("%Y년 %m월 %d일")
 
     if already_sent_today():
-        print(f"=== {today_str} 이미 발송 완료 — 스킵 ===")
+        print(f"=== {today_str} 이미 발송 완료 - 스킵 ===")
         return
 
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
