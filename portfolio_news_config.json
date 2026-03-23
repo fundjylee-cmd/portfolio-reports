@@ -1,0 +1,654 @@
+{
+  "portfolio": [
+    {
+      "name": "일본 ESS 에쿼티 투자",
+      "type": "해외에쿼티",
+      "keywords": [
+        "ESS 일본",
+        "에너지저장장치 일본",
+        "일본 ESS 시장",
+        "일본 재생에너지 정책"
+      ]
+    },
+    {
+      "name": "SK이노베이션",
+      "type": "신종자본증권/인수금융",
+      "keywords": [
+        "SK이노베이션",
+        "SK이노베이션 신용등급",
+        "SK이노베이션 재무",
+        "SK이노베이션 배터리",
+        "SK이노베이션 LNG"
+      ]
+    },
+    {
+      "name": "대승엔지니어링 (모듈러스쿨)",
+      "type": "기업신용공여",
+      "keywords": [
+        "대승엔지니어링",
+        "모듈러 스쿨",
+        "모듈러 건축",
+        "조립식 학교"
+      ]
+    },
+    {
+      "name": "성수동 오피스빌딩",
+      "type": "부동산PF",
+      "keywords": [
+        "성수동 오피스",
+        "성수동 빌딩",
+        "성수동 부동산",
+        "서울 오피스 공실"
+      ]
+    },
+    {
+      "name": "효성화학 (효성 보증)",
+      "type": "기업신용공여",
+      "keywords": [
+        "효성화학",
+        "효성 신용등급",
+        "효성화학 재무",
+        "효성 보증"
+      ]
+    },
+    {
+      "name": "롯데지주 신종자본증권",
+      "type": "신종자본증권",
+      "keywords": [
+        "롯데지주",
+        "롯데 신용등급",
+        "롯데지주 재무",
+        "롯데그룹 구조조정"
+      ]
+    },
+    {
+      "name": "에어퍼스트",
+      "type": "인수금융",
+      "keywords": [
+        "에어퍼스트",
+        "AirFirst",
+        "산업용 가스"
+      ]
+    },
+    {
+      "name": "GS파워",
+      "type": "인수금융",
+      "keywords": [
+        "GS파워",
+        "GS파워 인수",
+        "GS에너지",
+        "GS파워 발전"
+      ]
+    },
+    {
+      "name": "SK마이크로웍스",
+      "type": "인수금융",
+      "keywords": [
+        "SK마이크로웍스",
+        "SKC인더스트리",
+        "SK마이크로웍스 재무"
+      ]
+    },
+    {
+      "name": "에코비트",
+      "type": "인수금융",
+      "keywords": [
+        "에코비트",
+        "에코비트 폐기물",
+        "에코비트 인수금융"
+      ]
+    },
+    {
+      "name": "티맥스소프트",
+      "type": "인수금융",
+      "keywords": [
+        "티맥스소프트",
+        "티맥스 재무",
+        "티맥스그룹"
+      ]
+    },
+    {
+      "name": "한국플랜트서비스",
+      "type": "인수금융",
+      "keywords": [
+        "한국플랜트서비스",
+        "KPS",
+        "한국플랜트서비스 재무"
+      ]
+    },
+    {
+      "name": "SK해운",
+      "type": "인수금융",
+      "keywords": [
+        "SK해운",
+        "SK해운 재무",
+        "SK해운 용선"
+      ]
+    },
+    {
+      "name": "한화솔루션",
+      "type": "인수금융/신종",
+      "keywords": [
+        "한화솔루션",
+        "한화솔루션 신용등급",
+        "한화솔루션 재무",
+        "한화솔루션 PVC"
+      ]
+    },
+    {
+      "name": "보령엘엔지터미널",
+      "type": "인수금융",
+      "keywords": [
+        "보령LNG",
+        "보령엘엔지터미널",
+        "보령LNG터미널"
+      ]
+    },
+    {
+      "name": "H사 특수가스사업부",
+      "type": "인수금융",
+      "keywords": [
+        "특수가스 인수",
+        "산업용 가스 M&A",
+        "반도체 특수가스"
+      ]
+    },
+    {
+      "name": "LS Global Greenway 블라인드펀드",
+      "type": "PEF LP",
+      "keywords": [
+        "LS Global Greenway",
+        "LS 친환경",
+        "LS그룹 에너지"
+      ]
+    },
+    {
+      "name": "SK루브리컨츠 (아이엠엠에코솔루션)",
+      "type": "PEF LP",
+      "keywords": [
+        "SK루브리컨츠",
+        "아이엠엠에코솔루션",
+        "IMM에코솔루션"
+      ]
+    },
+    {
+      "name": "KT클라우드",
+      "type": "PEF LP",
+      "keywords": [
+        "KT클라우드",
+        "KT클라우드 IPO",
+        "KT클라우드 지분"
+      ]
+    },
+    {
+      "name": "InfraBridge GIF II",
+      "type": "인프라펀드 LP",
+      "keywords": [
+        "InfraBridge",
+        "GIF II",
+        "글로벌 인프라 펀드"
+      ]
+    },
+    {
+      "name": "베인캐피탈 블라인드펀드",
+      "type": "크레딧펀드 LP",
+      "keywords": [
+        "Bain Capital Credit",
+        "베인캐피탈"
+      ]
+    },
+    {
+      "name": "Brookfield 인프라",
+      "type": "인프라펀드 LP",
+      "keywords": [
+        "Brookfield Infrastructure",
+        "브룩필드 인프라"
+      ]
+    },
+    {
+      "name": "IMM Infra 9호",
+      "type": "PEF LP",
+      "keywords": [
+        "IMM인프라",
+        "IMM Infra",
+        "IMM인베스트먼트"
+      ]
+    },
+    {
+      "name": "쌍용C&E (한앤컴퍼니)",
+      "type": "PEF LP",
+      "keywords": [
+        "쌍용C&E",
+        "쌍용양회",
+        "한앤컴퍼니"
+      ]
+    },
+    {
+      "name": "이에스지리더스 PEF",
+      "type": "PEF LP",
+      "keywords": [
+        "이에스지리더스",
+        "ESG리더스"
+      ]
+    },
+    {
+      "name": "하이컨시 RCPS",
+      "type": "PEF LP",
+      "keywords": [
+        "하이컨시",
+        "엠제이엠미네르바"
+      ]
+    },
+    {
+      "name": "KKR RECOP II",
+      "type": "부동산펀드 LP",
+      "keywords": [
+        "KKR RECOP",
+        "KKR 부동산"
+      ]
+    },
+    {
+      "name": "Vantage Group (수송인프라)",
+      "type": "PEF LP",
+      "keywords": [
+        "Vantage Group",
+        "에이아이파트너스",
+        "수송인프라"
+      ]
+    },
+    {
+      "name": "HL만도/HL클레무브",
+      "type": "신종자본증권",
+      "keywords": [
+        "HL만도",
+        "HL클레무브",
+        "HL만도 신용등급",
+        "만도 재무"
+      ]
+    },
+    {
+      "name": "아시아나항공 신종자본증권",
+      "type": "신종자본증권",
+      "keywords": [
+        "아시아나항공",
+        "아시아나항공 신용등급",
+        "아시아나항공 재무"
+      ]
+    },
+    {
+      "name": "SK인천석유화학",
+      "type": "신종자본증권",
+      "keywords": [
+        "SK인천석유화학",
+        "SK인천석유화학 재무",
+        "SK인천석유화학 신용등급"
+      ]
+    },
+    {
+      "name": "코오롱인더스트리",
+      "type": "신종자본증권",
+      "keywords": [
+        "코오롱인더스트리",
+        "코오롱인더스트리 재무",
+        "코오롱 신용등급"
+      ]
+    },
+    {
+      "name": "HD현대오일뱅크",
+      "type": "신종자본증권",
+      "keywords": [
+        "HD현대오일뱅크",
+        "현대오일뱅크 재무",
+        "현대오일뱅크 신용등급"
+      ]
+    },
+    {
+      "name": "농협생명보험",
+      "type": "신종자본증권",
+      "keywords": [
+        "농협생명",
+        "농협생명 신용등급",
+        "농협생명 RBC"
+      ]
+    },
+    {
+      "name": "교보생명",
+      "type": "신종/ABL",
+      "keywords": [
+        "교보생명",
+        "교보생명 경영권",
+        "교보생명 신용등급",
+        "교보생명 FI"
+      ]
+    },
+    {
+      "name": "KB생명보험",
+      "type": "후순위채",
+      "keywords": [
+        "KB생명",
+        "KB생명 신용등급",
+        "KB생명 재무"
+      ]
+    },
+    {
+      "name": "한화생명보험",
+      "type": "후순위채",
+      "keywords": [
+        "한화생명",
+        "한화생명 신용등급",
+        "한화생명 재무"
+      ]
+    },
+    {
+      "name": "현대카드",
+      "type": "신종자본증권",
+      "keywords": [
+        "현대카드",
+        "현대카드 신용등급",
+        "현대카드 재무"
+      ]
+    },
+    {
+      "name": "현대해상",
+      "type": "후순위채",
+      "keywords": [
+        "현대해상",
+        "현대해상 신용등급",
+        "현대해상 재무"
+      ]
+    },
+    {
+      "name": "DB손해보험",
+      "type": "신종자본증권",
+      "keywords": [
+        "DB손해보험",
+        "DB손보 신용등급",
+        "DB손보 재무"
+      ]
+    },
+    {
+      "name": "신세계건설",
+      "type": "신종자본증권",
+      "keywords": [
+        "신세계건설",
+        "신세계건설 재무",
+        "신세계건설 신용등급"
+      ]
+    },
+    {
+      "name": "건설공제조합",
+      "type": "채권",
+      "keywords": [
+        "건설공제조합",
+        "건설공제조합 재무",
+        "건설공제조합 신용등급"
+      ]
+    },
+    {
+      "name": "솔루엠 RCPS ABL",
+      "type": "ABL",
+      "keywords": [
+        "솔루엠",
+        "솔루엠 재무",
+        "솔루엠 실적"
+      ]
+    },
+    {
+      "name": "LG에너지솔루션 PRS ABL",
+      "type": "ABL",
+      "keywords": [
+        "LG에너지솔루션",
+        "LG에너지솔루션 주가",
+        "LG엔솔 실적"
+      ]
+    },
+    {
+      "name": "대신증권 RCPS",
+      "type": "ABL",
+      "keywords": [
+        "대신증권",
+        "대신증권 재무",
+        "대신증권 신용등급"
+      ]
+    },
+    {
+      "name": "SK온 PRS",
+      "type": "PRS",
+      "keywords": [
+        "SK온",
+        "SK온 주가",
+        "SK온 배터리",
+        "SK온 IPO"
+      ]
+    },
+    {
+      "name": "SK넥실리스 (보증 ABS)",
+      "type": "ABS",
+      "keywords": [
+        "SK넥실리스",
+        "SK넥실리스 재무",
+        "SK넥실리스 동박"
+      ]
+    },
+    {
+      "name": "SK TRS계약",
+      "type": "ABB",
+      "keywords": [
+        "SK그룹 TRS",
+        "SK 총수익스왑"
+      ]
+    },
+    {
+      "name": "SSG닷컴 ABL",
+      "type": "ABL",
+      "keywords": [
+        "SSG닷컴",
+        "SSG닷컴 재무",
+        "SSG닷컴 적자"
+      ]
+    },
+    {
+      "name": "스타필드청라 ABL",
+      "type": "ABL",
+      "keywords": [
+        "스타필드 청라",
+        "스타필드청라",
+        "청라 스타필드"
+      ]
+    },
+    {
+      "name": "LS증권 전환우선주 ABL",
+      "type": "ABL",
+      "keywords": [
+        "LS증권",
+        "LS증권 재무"
+      ]
+    },
+    {
+      "name": "우리금융지주",
+      "type": "인수금융",
+      "keywords": [
+        "우리금융지주",
+        "우리금융 신용등급",
+        "우리금융 재무"
+      ]
+    },
+    {
+      "name": "현대건설 (뉴스테이/보증)",
+      "type": "ABL/ABS",
+      "keywords": [
+        "현대건설",
+        "현대건설 신용등급",
+        "현대건설 재무",
+        "현대건설 리츠"
+      ]
+    },
+    {
+      "name": "(주)한화 리츠",
+      "type": "ABL",
+      "keywords": [
+        "한화 뉴스테이",
+        "한화 임대리츠",
+        "한화 신용등급"
+      ]
+    },
+    {
+      "name": "CJ제일제당 (보증 대출)",
+      "type": "ABL/ABS",
+      "keywords": [
+        "CJ제일제당",
+        "CJ제일제당 신용등급",
+        "CJ제일제당 재무"
+      ]
+    },
+    {
+      "name": "KB증권 DLB",
+      "type": "DLB",
+      "keywords": [
+        "KB증권",
+        "KB증권 DLB"
+      ]
+    },
+    {
+      "name": "서초동 서리풀 복합시설",
+      "type": "부동산PF",
+      "keywords": [
+        "서초동 서리풀",
+        "서리풀 복합시설",
+        "서초동 개발"
+      ]
+    },
+    {
+      "name": "부천 삼정동 데이터센터",
+      "type": "부동산PF",
+      "keywords": [
+        "부천 데이터센터",
+        "삼정동 데이터센터",
+        "데이터센터 PF"
+      ]
+    },
+    {
+      "name": "독일 뒤셀도르프 보다폰 오피스",
+      "type": "해외부동산",
+      "keywords": [
+        "뒤셀도르프 오피스",
+        "Vodafone Dusseldorf",
+        "독일 오피스"
+      ]
+    },
+    {
+      "name": "뉴욕 10 Hudson Yards",
+      "type": "해외부동산",
+      "keywords": [
+        "Hudson Yards",
+        "10 Hudson Yards",
+        "뉴욕 오피스"
+      ]
+    },
+    {
+      "name": "DC Value Recovery Fund IV",
+      "type": "해외부동산펀드",
+      "keywords": [
+        "DC Value Recovery",
+        "NH-Amundi 부동산"
+      ]
+    },
+    {
+      "name": "에미레이트 B777 항공기",
+      "type": "항공기금융",
+      "keywords": [
+        "에미레이트 항공",
+        "Emirates B777",
+        "항공기 리스"
+      ]
+    },
+    {
+      "name": "GECAS 항공기 포트폴리오",
+      "type": "항공기금융",
+      "keywords": [
+        "GECAS",
+        "AerCap",
+        "항공기 포트폴리오"
+      ]
+    },
+    {
+      "name": "KIAMCO 유럽 Cookware",
+      "type": "해외대출",
+      "keywords": [
+        "KIAMCO Cookware",
+        "유럽 Cookware"
+      ]
+    },
+    {
+      "name": "KIAMCO 태양광펀드",
+      "type": "태양광",
+      "keywords": [
+        "KIAMCO 태양광",
+        "KIAMCO 신재생"
+      ]
+    },
+    {
+      "name": "일본 야마구치 태양광",
+      "type": "해외태양광",
+      "keywords": [
+        "야마구치 태양광",
+        "일본 태양광",
+        "IBK 신재생"
+      ]
+    },
+    {
+      "name": "Bayfront 인프라대출",
+      "type": "해외인프라",
+      "keywords": [
+        "Bayfront",
+        "Bayfront Infrastructure"
+      ]
+    },
+    {
+      "name": "BAC (Bank of America)",
+      "type": "해외채권",
+      "keywords": [
+        "Bank of America",
+        "BAC 실적"
+      ]
+    },
+    {
+      "name": "대구그린파워",
+      "type": "대출",
+      "keywords": [
+        "대구그린파워",
+        "대구그린파워 발전",
+        "대구 LNG발전"
+      ]
+    },
+    {
+      "name": "웰릭스 NPL",
+      "type": "NPL",
+      "keywords": [
+        "웰릭스",
+        "웰릭스 NPL",
+        "채무조정 NPL"
+      ]
+    },
+    {
+      "name": "베리타스 NPL",
+      "type": "NPL",
+      "keywords": [
+        "베리타스",
+        "베리타스 NPL"
+      ]
+    }
+  ],
+  "relevance_criteria": [
+    "신용등급 변동 (상향/하향/아웃룩 변경)",
+    "재무 이슈 (유동성 위기, 워크아웃, 부도, 자본확충)",
+    "경영진 변화 (CEO 교체, 대규모 인사)",
+    "M&A / 지분 변동 / 매각 이슈",
+    "법적 분쟁 / 소송 / 규제 제재",
+    "DART 공시 (사채, 담보, 주요사항보고)",
+    "실적 발표 (어닝 서프라이즈/쇼크)",
+    "정부 정책 변화 (에너지, 부동산, 금융)",
+    "금리 변동 및 차환 리스크",
+    "계열사 리스크 전이 가능성"
+  ]
+}
