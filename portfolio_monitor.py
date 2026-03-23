@@ -249,9 +249,40 @@ def send_email(html: str, today_str: str):
         s.sendmail(GMAIL_SENDER, GMAIL_RECIPIENTS, msg.as_string())
     print(f"이메일 발송 완료: {', '.join(GMAIL_RECIPIENTS)}")
 
+# ── 중복 발송 방지 ─────────────────────────────────────────────
+SENT_FLAG_FILE = "last_sent_date.txt"
+
+def already_sent_today() -> bool:
+    """GitHub 레포에 저장된 마지막 발송 날짜를 확인"""
+    headers = {"Authorization": f"token {GH_TOKEN}", "Accept": "application/vnd.github+json"}
+    r = requests.get(f"https://api.github.com/repos/{GH_USER}/{GH_REPO}/contents/{SENT_FLAG_FILE}", headers=headers)
+    if r.ok:
+        content = base64.b64decode(r.json()["content"]).decode().strip()
+        today = datetime.now(KST).strftime("%Y-%m-%d")
+        if content == today:
+            return True
+    return False
+
+def mark_sent_today():
+    """오늘 발송 완료 표시를 GitHub 레포에 저장"""
+    headers = {"Authorization": f"token {GH_TOKEN}", "Accept": "application/vnd.github+json"}
+    today = datetime.now(KST).strftime("%Y-%m-%d")
+    content_b64 = base64.b64encode(today.encode()).decode()
+    url = f"https://api.github.com/repos/{GH_USER}/{GH_REPO}/contents/{SENT_FLAG_FILE}"
+    r = requests.get(url, headers=headers)
+    payload = {"message": f"sent {today}", "content": content_b64}
+    if r.ok:
+        payload["sha"] = r.json()["sha"]
+    requests.put(url, headers=headers, json=payload)
+
 # ── 메인 ────────────────────────────────────────────────────
 def main():
     today_str = datetime.now(KST).strftime("%Y년 %m월 %d일")
+
+    if already_sent_today():
+        print(f"=== {today_str} 이미 발송 완료 — 스킵 ===")
+        return
+
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
     print(f"=== 포트폴리오 뉴스 모니터링 시작 ({today_str}) ===")
 
@@ -279,6 +310,7 @@ def main():
     print("이메일 발송 중...")
     send_email(html, today_str)
 
+    mark_sent_today()
     print("\n=== 모든 발송 완료 ===")
 
 if __name__ == "__main__":
