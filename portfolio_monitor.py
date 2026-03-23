@@ -27,23 +27,30 @@ PAGES_URL = f"https://{GH_USER}.github.io/{GH_REPO}/"
 
 KST = timezone(timedelta(hours=9))
 
-# ── 포트폴리오 딜 목록 ──────────────────────────────────────
-PORTFOLIO = [
-    {"name": "일본 ESS 에쿼티 투자",         "type": "해외에쿼티",
-     "keywords": ["ESS 일본", "에너지저장장치 일본", "일본 재생에너지 정책", "Japan ESS battery storage"]},
-    {"name": "SK이노베이션 신종자본증권",     "type": "신종자본증권",
-     "keywords": ["SK이노베이션 신종자본증권", "SK이노베이션 신용등급", "SK이노베이션 재무", "SK이노베이션 공시"]},
-    {"name": "SK LNG발전 자회사 인수금융",    "type": "인수금융",
-     "keywords": ["SK LNG발전", "SK E&S LNG", "SK LNG 인수금융", "LNG 발전 정책"]},
-    {"name": "대승엔지니어링 (모듈러스쿨)",   "type": "대출",
-     "keywords": ["대승엔지니어링", "모듈러 스쿨", "모듈러 건축", "조립식 학교"]},
-    {"name": "성수동 오피스빌딩",            "type": "부동산",
-     "keywords": ["성수동 오피스", "성수동 빌딩", "성수동 부동산", "서울 오피스 공실"]},
-    {"name": "효성화학 대출 (효성 보증)",     "type": "대출",
-     "keywords": ["효성화학", "효성 신용등급", "효성화학 재무", "효성화학 공시", "효성화학 실적"]},
-    {"name": "롯데지주 신종자본증권",         "type": "신종자본증권",
-     "keywords": ["롯데지주 신종자본증권", "롯데 신용등급", "롯데지주 재무", "롯데지주 공시"]},
-]
+# ── 포트폴리오 딜 목록 (config 파일 또는 GitHub 레포에서 로드) ──
+def load_portfolio():
+    # 로컬 config 파일 우선
+    local_cfg = r"C:\Claude Code\portfolio_news_config.json"
+    try:
+        with open(local_cfg, "r", encoding="utf-8") as f:
+            cfg = json.load(f)
+            if "portfolio" in cfg:
+                return cfg["portfolio"]
+    except FileNotFoundError:
+        pass
+    # GitHub 레포에서 로드 (Actions 환경)
+    try:
+        headers = {"Authorization": f"token {GH_TOKEN}", "Accept": "application/vnd.github+json"}
+        r = requests.get(f"https://api.github.com/repos/{GH_USER}/{GH_REPO}/contents/portfolio_news_config.json", headers=headers)
+        if r.ok:
+            content = base64.b64decode(r.json()["content"]).decode()
+            cfg = json.loads(content)
+            return cfg.get("portfolio", [])
+    except Exception:
+        pass
+    return []
+
+PORTFOLIO = load_portfolio()
 
 # ── 뉴스 수집 ──────────────────────────────────────────────
 def fetch_google_news(keyword: str) -> list:
