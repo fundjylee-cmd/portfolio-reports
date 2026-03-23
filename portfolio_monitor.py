@@ -144,8 +144,12 @@ def generate_html(results: list, today_str: str) -> str:
     high = sum(1 for r in results if r["analysis"]["importance"] == "고중요도")
     mid  = sum(1 for r in results if r["analysis"]["importance"] == "중간중요도")
 
+    # 중간중요도 이상만 상세 표시, 나머지는 하단 요약
+    important_results = [r for r in results if r["analysis"]["importance"] in ("고중요도", "중간중요도")]
+    low_results = [r for r in results if r["analysis"]["importance"] not in ("고중요도", "중간중요도")]
+
     deal_html = ""
-    for r in results:
+    for r in important_results:
         imp   = r["analysis"]["importance"]
         color = imp_color.get(imp, "#adb5bd")
         news_html = "".join([
@@ -175,6 +179,17 @@ def generate_html(results: list, today_str: str) -> str:
           {summary_html}
           <div style="padding:8px 16px 4px;">{news_html}</div>
           {comment_html}
+        </div>"""
+
+    # 특이사항 없는 딜 하단 요약
+    if low_results:
+        low_names = ", ".join([r["deal"]["name"] for r in low_results])
+        deal_html += f"""
+        <div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;margin-bottom:16px;overflow:hidden;">
+          <div style="padding:14px 16px;border-left:4px solid #adb5bd;">
+            <span style="font-weight:600;font-size:14px;color:#6c757d;">특이사항 없음 ({len(low_results)}건)</span>
+          </div>
+          <div style="padding:10px 16px;font-size:12px;color:#999;line-height:1.8;">{low_names}</div>
         </div>"""
 
     return f"""<!DOCTYPE html>
