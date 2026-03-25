@@ -3,60 +3,396 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>포트폴리오 모니터링 | 2026년 03월 25일</title>
+<title>포트폴리오 모니터링 2026년 03월 25일</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif; background: #f0f2f5; color: #333; }
-  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 24px 32px; }
-  .header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
-  .header .subtitle { font-size: 0.9rem; opacity: 0.8; }
-  .stats-bar { display: flex; gap: 16px; padding: 16px 32px; background: white; border-bottom: 1px solid #e0e0e0; flex-wrap: wrap; }
-  .stat-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
-  .stat-dot { width: 12px; height: 12px; border-radius: 50%; }
-  .stat-label { color: #666; }
-  .stat-count { font-weight: 700; }
-  .container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
-  .section-title { font-size: 1rem; font-weight: 700; color: #444; margin: 24px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e0e0e0; }
-  .deal-card { background: white; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-  .deal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 8px; }
-  .deal-name { font-size: 1rem; font-weight: 700; color: #1a1a2e; margin-right: 8px; }
-  .deal-type { font-size: 0.75rem; color: #888; background: #f0f0f0; padding: 2px 8px; border-radius: 10px; }
-  .importance-badge { font-size: 0.75rem; font-weight: 700; color: white; padding: 3px 10px; border-radius: 12px; white-space: nowrap; flex-shrink: 0; }
-  .news-item { margin: 8px 0; padding: 10px 12px; background: #fafafa; border-radius: 6px; border: 1px solid #eeeeee; }
-  .news-title { display: block; font-size: 0.85rem; font-weight: 600; color: #1a73e8; text-decoration: none; line-height: 1.4; margin-bottom: 6px; }
-  .news-title:hover { text-decoration: underline; }
-  .ai-comment { font-size: 0.82rem; color: #555; line-height: 1.5; }
-  .summary-box { margin-top: 10px; padding: 10px 14px; background: rgba(0,0,0,0.03); border-radius: 6px; font-size: 0.83rem; color: #444; line-height: 1.5; }
-  .low-section { background: white; border-radius: 8px; padding: 14px 20px; margin-top: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-  .low-section-title { font-size: 0.85rem; font-weight: 700; color: #6c757d; margin-bottom: 10px; }
-  .low-item { display: inline-block; font-size: 0.78rem; color: #888; background: #f5f5f5; padding: 3px 10px; border-radius: 10px; margin: 3px 2px; }
-  .footer { text-align: center; padding: 20px; font-size: 0.75rem; color: #999; }
-  @media (max-width: 600px) {
-    .header { padding: 16px; }
-    .container { padding: 12px 8px; }
-    .deal-header { flex-direction: column; }
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif; background:#f8f9fa; margin:0; padding:20px; color:#333; }
+  .container { max-width:900px; margin:0 auto; }
+  .header { background:linear-gradient(135deg,#1a237e,#283593); color:white; padding:24px 28px; border-radius:12px; margin-bottom:24px; }
+  .header h1 { margin:0 0 6px; font-size:1.5rem; }
+  .header p { margin:0; opacity:.85; font-size:.9rem; }
+  .stats { display:flex; gap:12px; margin-top:14px; }
+  .stat { background:rgba(255,255,255,.15); border-radius:8px; padding:8px 16px; text-align:center; }
+  .stat .num { font-size:1.4rem; font-weight:700; }
+  .stat .lbl { font-size:.75rem; opacity:.85; }
+  .section-title { margin:28px 0 12px; font-size:1.1rem; font-weight:700; }
+  .deal-card { background:white; border-radius:10px; padding:18px 20px; margin-bottom:14px; box-shadow:0 2px 8px rgba(0,0,0,.07); }
+  .deal-header { display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+  .deal-name { font-weight:700; font-size:1rem; }
+  .deal-type { background:#e9ecef; border-radius:4px; padding:2px 8px; font-size:.78rem; color:#495057; }
+  .importance-badge { color:white; border-radius:4px; padding:2px 8px; font-size:.78rem; font-weight:600; }
+  .news-item { border-bottom:1px solid #f0f0f0; padding:8px 0; }
+  .news-item:last-of-type { border-bottom:none; }
+  .news-item a { color:#1565c0; text-decoration:none; font-size:.9rem; line-height:1.4; }
+  .news-item a:hover { text-decoration:underline; }
+  .ai-comment { color:#555; font-size:.83rem; margin-top:4px; padding-left:4px; border-left:3px solid #e0e0e0; }
+  .summary { background:#f8f9fa; border-radius:6px; padding:10px 14px; margin-top:12px; font-size:.86rem; color:#444; line-height:1.6; }
+  .low-list { background:white; border-radius:10px; padding:16px 20px; margin-bottom:14px; box-shadow:0 2px 8px rgba(0,0,0,.07); color:#666; font-size:.88rem; line-height:1.8; }
+  .footer { text-align:center; margin-top:32px; color:#aaa; font-size:.8rem; }
 </style>
 </head>
 <body>
-<div class="header">
-<h1>📊 대체투자 포트폴리오 뉴스 모니터링</h1>
-<div class="subtitle">2026년 03월 25일 기준 | AI 분석 포함 | 신한투자증권 대체투자팀</div>
-</div>
-<div class="stats-bar">
-<div class="stat-item"><div class="stat-dot" style="background:#dc3545"></div><span class="stat-label">고중요도</span>&nbsp;<span class="stat-count">4건</span></div>
-<div class="stat-item"><div class="stat-dot" style="background:#fd7e14"></div><span class="stat-label">중간중요도</span>&nbsp;<span class="stat-count">16건</span></div>
-<div class="stat-item"><div class="stat-dot" style="background:#6c757d"></div><span class="stat-label">특이사항 없음</span>&nbsp;<span class="stat-count">0개 딜</span></div>
-<div class="stat-item" style="margin-left:auto;"><span class="stat-label">총 수집 뉴스</span>&nbsp;<span class="stat-count">51건</span></div>
-<div class="stat-item"><span class="stat-label">모니터링 딜</span>&nbsp;<span class="stat-count">71개</span></div>
-</div>
 <div class="container">
-<div class="section-title">🔴 고중요도 — 즉시 검토 필요</div>
-<div class="deal-card" style="border-left:4px solid #dc3545;background:#fff5f5;"><div class="deal-header"><div><span class="deal-name">SK이노베이션</span> <span class="deal-type">신종자본증권/인수금융</span></div><span class="importance-badge" style="background:#dc3545">고중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE1FV2xWRjlsNFFNdTd2ZmtIN3MzVHdzcE1UZ0FRRXBGd1JHbEM2dWtJRjdBN0pld3BrX0c0dTEwOWpKTGYwQ3FYR1FZWkNnUWFjcTVVQ2tqejBVZnlXclB5R2NLREpPeEl6LXNTV2gwVG4" target="_blank" class="news-title">SK이노베이션, S&amp;P서 투자적격 신용등급 'BBB-' 유지 - 연합인포맥스</a><div class="ai-comment">💡 S&amp;P가 SK이노베이션의 투자적격 신용등급 BBB-를 유지 확인 — 보유 신종자본증권·인수금융 신용 리스크 현상 유지 판단</div></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE9JMHJ6SEhIY24tWTBqbFhqUUhWOGFKWnZBUWtLTG5tQVBlTEJqOUZXVE9qQ0hQVzl6Q2ZnWUdqakpSVmJ3UzBmNTE0bWFQMk5MOFE" target="_blank" class="news-title">SK이노베이션 &quot;올해 토털 에너지 기업으로 도약할 것&quot; - 노컷뉴스</a><div class="ai-comment">💡 LNG·에너지 사업 확대 방향 밝혀 — 배터리 외 사업 다각화로 현금흐름 안정화 기대</div></div><div class="summary-box">📋 S&amp;P BBB- 등급 유지로 신용 리스크 현상 유지. 에너지 사업 다각화 전략 발표는 장기 수익성에 긍정적 신호.</div></div><div class="deal-card" style="border-left:4px solid #dc3545;background:#fff5f5;"><div class="deal-header"><div><span class="deal-name">베인캐피탈 PD펀드 (Private Credit)</span> <span class="deal-type">Private Credit LP</span></div><span class="importance-badge" style="background:#dc3545">고중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTFBRWG1BWndMOUhJRTF2UloySVJQakRXdjI2aDlkaVg0Ql9Zcjk2UHA1MWE3eWUyRHlaTWg3d0pNOUt0bUNGMXJmY1hSV3I1aFZnY2xxQXFhZ1l1ejgwcTVFbGlVUUdVV0I4dEtwV3BTLUFkZDA" target="_blank" class="news-title">월가 사모대출 펀드런 확산…빗장 닫는 운용사들 - 마켓인</a><div class="ai-comment">💡 월가 사모대출 펀드에서 환매 요청 급증, 운용사들이 환매 제한 조치 — LP 투자자로서 유동성 리스크 모니터링 필요</div></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1SWHB4alZLMk96ZkhMQ0JvdF8tbUQtanY4bUNPNUNySmowTGkzeFdvaG96aXpfZWZwbFZJS0xmWGJnNDJULWJGZE9zWWsxN094QWVnQ3AzTko5QdIBVEFVX3lxTE1hWTFaUjBJaXFiRVNlUk5icnkyUGxEMWhxM2tzdGJnV0pJbkRjMzRPeUQ4QWF6QkJja09ERVJqLWFYQUdNVnJCWVJRUklQQmtCbEdiRA" target="_blank" class="news-title">황금기 끝나가는 사모대출의 '5가지 위험 신호' - 한국경제</a><div class="ai-comment">💡 부실 증가보다 유동성 미스매치가 주 리스크로 지목 — 장기 비유동 자산 보유 펀드의 구조적 취약성 부각</div></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5HWll4WEFyTU9Jb1BjNE1GUmlLZVM2OGJZLUFIamExSUdQN2x4SmhHdzhvVE9SbTh2eTNwLTFqbGtEMUFtdnhiS091b09HeWlYTnhMR2Y4R2pjMms" target="_blank" class="news-title">잘 나가던 사모대출 흔든 건 부실보다 유동성...'장기자산-단기환매'의 덫 - ekn.kr</a><div class="ai-comment">💡 사모대출 펀드 리스크의 핵심이 부실이 아닌 유동성 구조에 있다는 분석 — 베인캐피탈 PD펀드의 환매 조건·기간 재확인 권고</div></div><div class="summary-box">📋 글로벌 Private Credit 시장에서 펀드런·유동성 리스크 우려가 급증. 베인캐피탈 PD펀드의 환매 조건 및 포트폴리오 부실 여부를 운용사에 직접 확인할 필요 있음.</div></div><div class="deal-card" style="border-left:4px solid #dc3545;background:#fff5f5;"><div class="deal-header"><div><span class="deal-name">HD현대오일뱅크</span> <span class="deal-type">신종자본증권</span></div><span class="importance-badge" style="background:#dc3545">고중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMickFVX3lxTFBaN0J5UXNHaFc3cUU1RjVfemN6b0J2azFlV3FsRWROeFNKS1dkNDNyQ25nWkpPZU90dXZKbWdHcW5GQjlMdnFVUnNIWVRxVkdZNXVuOTZOSEk0Q0ZfOUVhWERpNEZWR0hxUzBwWWdDaGhGUQ" target="_blank" class="news-title">[단독] 검찰, SK에너지·GS칼텍스·에쓰오일·현대오일뱅크 압수수색 - 한겨레</a><div class="ai-comment">💡 검찰이 HD현대오일뱅크 등 4개 정유사 압수수색 실시 — 수사 결과에 따라 과징금·규제 리스크 발생 가능성, 재무·신용에 미치는 영향 주시 필요</div></div><div class="summary-box">📋 검찰이 국내 4대 정유사에 대해 압수수색 단행. 수사 목적이 아직 명확히 보도되지 않아 추가 모니터링 필요. 중대 제재 시 신용등급 영향 가능.</div></div><div class="deal-card" style="border-left:4px solid #dc3545;background:#fff5f5;"><div class="deal-header"><div><span class="deal-name">신세계건설</span> <span class="deal-type">신종자본증권</span></div><span class="importance-badge" style="background:#dc3545">고중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiRkFVX3lxTE9yQTBhVG81enZqZDdKRm5UVWl1TEVaZ0dVRU1hMEtSbzkxNDhlbUp5aExSVUlRNlgtb05sYUpMOGcyXzFYTmc" target="_blank" class="news-title">'상폐 1년' 신세계건설, 외형 커졌지만 큰폭 손실 - v.daum.net</a><div class="ai-comment">💡 상장폐지 1년이 지났으나 여전히 큰 폭의 손실 지속 — 신종자본증권 보유 중인 경우 원리금 상환 능력 재점검 필요</div></div><div class="summary-box">📋 상폐 후 외형은 성장했으나 실적 적자가 지속. 신종자본증권의 이자 지급 능력 및 만기 상환 가능성에 대한 모니터링 강화 요망.</div></div>
-<div class="section-title">🟠 중간중요도 — 모니터링 권고</div>
-<div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">일본 ESS 에쿼티 투자</span> <span class="deal-type">해외에쿼티</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5xaGxuTFMxN3d2cG1jMXhPTm5rQWVXVVVTTnFTRlk0OXFRS1B0bTlvai1xYjRiakthZnZWUVplUWVVczJscVpER24yMXE0cVFLRkJJU1FpcTZlLUE" target="_blank" class="news-title">&quot;전력도 주식처럼 사고 판다&quot;…도쿄서 확인한 ESS 시장의 '폭발력' - ekn.kr</a><div class="ai-comment">💡 일본 전력 현물시장에서 ESS의 수익성 부각 — 투자한 ESS 에쿼티의 수익 창출 환경이 긍정적임을 확인</div></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5pcWh0ZEdFbFR6cFpUazJxSnA0NHB6YVc4cG1YQ3BHMWZVcTM4OWNmZVRDNWFidi00S3R0Q2RMOUVYMDVGZXcwVTlfdTAzaWE2ZndGbnRmWGw5VDQ" target="_blank" class="news-title">&quot;수소는 장기 산업, 일본은 이미 방향 정했다&quot;…도쿄서 확인된 한일 탄소중립 전략 차이 - ekn.kr</a><div class="ai-comment">💡 일본 에너지 전환 정책의 방향성 확인 — 재생에너지 중심 정책 기조가 ESS 수요에 구조적 지지 요인</div></div><div class="summary-box">📋 일본 ESS 시장의 성장세와 전력 현물시장 활성화가 확인됨. 투자 포트폴리오에 긍정적인 시장 환경.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">대승엔지니어링 (모듈러스쿨)</span> <span class="deal-type">기업신용공여</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE1rLXBKckRDaVVETE0xdEZFcFR3Rkd4RWV5bnFRYktYc0NiUDhMTjJzTW9Za1FtU2NSR01hQVRPYTRoaWp3YlJBRWNqMXU2ZkgxVFo4cU9teTJGbjVvcEhyakFDR0xqSW1Rbk9DS0F3" target="_blank" class="news-title">모듈러특별법 '통합발주' 논란…설비업계 &quot;저가 하도급 전락&quot;[부동산팀의 비즈워치] - 네이트</a><div class="ai-comment">💡 모듈러특별법의 통합발주 방식이 논란 — 설비업계 수익성 악화 우려로 대승엔지니어링의 마진 압박 가능성</div></div><div class="summary-box">📋 모듈러 특별법 시행 관련 업계 갈등이 부각. 정책 방향에 따라 수주 환경 및 수익성 변동 가능성 존재.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">효성화학 (효성 보증)</span> <span class="deal-type">기업신용공여</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE9xOGt0TWVPaEhndmpGYUxTSHN2SHVzVGRZZ2pucHhsOWk5YkZQTlhwTmFYVjdrN2dHY1VYMEQ4b1EwTkw2SG12Smw4dmFDYUZEUGE0" target="_blank" class="news-title">효성, Hyosung DongNai 채무보증 결정 - 네이트</a><div class="ai-comment">💡 효성이 베트남 법인 Hyosung DongNai에 채무보증 결정 — 보증 확대에 따른 우발채무 증가로 효성 그룹 전체 보증 부담 점검 필요</div></div><div class="summary-box">📋 효성이 해외 계열사에 신규 채무보증을 결정. 효성 보증을 담보로 하는 투자 구조에서 효성의 보증 총 한도·재무 여력 모니터링 필요.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">롯데지주 신종자본증권</span> <span class="deal-type">신종자본증권</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE5kUjJxQnBmLVc2TmFUQTk4YjVwRlh2U2xsSFBjYUJnOU9QaGxEX0Z4QV91ajhCUFVWTTcxMVZoTUZ2RWlnRDUxeEJ0cVNpVXNqNnRYdFhWN3pZTnZx" target="_blank" class="news-title">지분가치 급락에 칼 뺐나…신동빈, '코리아세븐 수장 교체' 진짜 이유는 - 뉴스핌</a><div class="ai-comment">💡 코리아세븐(롯데 편의점 계열사) 수장 교체 단행 — 지분가치 하락 대응을 위한 그룹 내 구조 재편 신호로 해석, 롯데지주 재무에 직간접 영향 주시</div></div><div class="summary-box">📋 롯데그룹 계열사 경영진 교체가 이어지며 구조조정 가능성이 제기됨. 롯데지주 신종자본증권의 이자 지급 능력 관련 그룹 전반 상황 주목.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">H사 특수가스사업부</span> <span class="deal-type">인수금융</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE90OC04OHNOX05rSkFEMWdkUGJndFdqc2FXN3hRQWZWUGQ4VkNFeHQ2OXh5bFZRX1RZbmZ5ZVJSUHBkNTJQclZDNlF0clVFSnYzbjM0NkVBeGJMaGJwLWdtUkV6d3Q" target="_blank" class="news-title">포스코 내달부터 국내 유일 희귀가스 공급 본격화…'산업가스'로 미래 성장 가속 - 더구루</a><div class="ai-comment">💡 포스코가 국내 희귀가스 공급 시장에 본격 진입 — 특수가스 시장 경쟁 심화로 H사 사업부 수익성에 영향 가능성</div></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE95R0dGWnNweS16SjhPNWZrenJCdmx0c2xucEVCRFp5aHZZTTNfdmhGeEJnZmlyUEd3bXNGaDJ2Zk52M3paWGN6NndKblZFVDJmaXkyR0ZzN3pJM1dEM2JHVUtXSDhWQVd1M0s0d3JJSDY" target="_blank" class="news-title">포스코, 광양서 희귀가스 '풀 밸류체인' 완성…국내 반도체 절반 공급 - 신아일보</a><div class="ai-comment">💡 포스코가 국내 반도체 희귀가스 공급 절반을 목표로 밸류체인 완성 선언 — 산업용 특수가스 시장 구도 재편 가능성</div></div><div class="summary-box">📋 포스코의 특수가스 시장 본격 진입으로 경쟁 심화. H사 특수가스사업부의 시장점유율 및 가격 협상력 변화에 대한 면밀한 모니터링 필요.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">아시아나항공 신종자본증권</span> <span class="deal-type">신종자본증권</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE82cUNDX1dmNldPV2V2aXlDN0F6R1dIdVV0OU92cGlSU25rRTlfeWxGWFNlam14aXp6NWE0SUNWQUhwYlZjdy1ONkEtX1llRDRNOEJrWkVScl9xQdIBWEFVX3lxTE04SnJkdmJ3UERjR25OLVVFeVBsVDlueEJaSWczWmpobElGOTlPTG5oVnNFd2xyS0UyQm9zdmM5QVZMUVZ0Q014eXh4bDhoSWNuckQ2ekFwLVA" target="_blank" class="news-title">[단독] 통합 항공사 출범 초읽기…아시아나, 근무·임금체계 모두 대한항공化 - 아주경제</a><div class="ai-comment">💡 대한항공-아시아나 통합이 근무·임금체계 통합 단계 진입 — 합병 완료 이후 아시아나 법인 존속 여부 및 신종자본증권 처리 방향 추적 필요</div></div><div class="summary-box">📋 통합 항공사 출범이 구체화되고 있음. 합병 완료 시 아시아나 신종자본증권의 채권자 보호 조항 및 만기 상환 처리 방식 사전 확인 권고.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">코오롱인더스트리</span> <span class="deal-type">신종자본증권</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE8yS04wM21HaUJ1bmQ0OEluWDBmVXBsOTl0Q0xVR3RTMWVkSGRvN08ybTBSWnpQUGtJUGVRSF9FRGVhMEpWZmJkOTlyYU92aU9oVWU2azFBMTJiOS1Nc0ZJTGRTNGIydXpkQzNldG55ZGs" target="_blank" class="news-title">코오롱인더스트리, 화학군이 11년 만에 패션군 넘었다 - 위키리크스한국</a><div class="ai-comment">💡 화학군 매출이 11년 만에 패션군을 넘어서 — 고부가 소재 중심의 사업구조 전환이 수익성에 긍정 신호</div></div><div class="summary-box">📋 코오롱인더스트리의 화학군 실적 개선이 확인됨. 사업 포트폴리오 전환으로 재무 안정성에 긍정적.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">교보생명</span> <span class="deal-type">신종/ABL</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTFBndUtzbUllTHNjNHJWOUluOWNTMjBpVFRGdXlpUGhGX09PRUxIaHZZVlRfaUZ1RFZ0d29nTlhvOURORFMwX3BmcTUyYTliOGVyTDZ6eUNQTUMtSTFxcGhsQ3pJeldjQQ" target="_blank" class="news-title">SBI저축은행 품었지만…교보생명 IPO 추진 가시밭길 앞둔 내막 - 일요신문</a><div class="ai-comment">💡 SBI저축은행 인수에도 불구하고 교보생명 IPO 전망이 불투명 — IPO 여부는 FI와의 가격 분쟁 및 자본 조달 계획에 영향</div></div><div class="summary-box">📋 교보생명 IPO 불확실성 지속. 기존 FI(재무적 투자자)와의 분쟁 및 IPO 일정 변동이 관련 투자 구조에 영향을 미칠 수 있음.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">한화생명보험</span> <span class="deal-type">후순위채</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTFBiM1lGN014WjB1bERMTmVibGVXUjYxTDFXb3ltRFFxTkUwQkVKWVFZekxTTzNTZzdYSWdRRFFQczE5UXo2azJWSkd1aVkzaXFsbXc" target="_blank" class="news-title">한화생명, 주식등의 대량보유자 소유주식수 변동 - 매일경제 마켓</a><div class="ai-comment">💡 대량보유자 지분 변동 공시 발생 — 주요 주주 구성 변화가 향후 경영 방향에 영향을 줄 수 있어 추적 필요</div></div><div class="summary-box">📋 한화생명 주요 주주 지분 변동 공시. 지배구조 변화 가능성에 대한 모니터링 권고.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">DB손해보험</span> <span class="deal-type">신종자본증권</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE11YlE5RTBRWlpOcGw0QjBRemVDVkxOZmlJQUtGV292VUw4aGFMRnE1WDVhYXQwRWg5a3Z2OVlqQUJhVUdmcXQ5c2RJM2Q5U3k5TmRBWVVlYzVQWHJndlRmTGFDUE9qQkZyZEQ5cUdPRdIBc0FVX3lxTFBBNVNGckhua09zSG1vRHdoRFA2ZmVTVldDZzlPN29DNXYySTEwMWZBblZYYUdleWFlT0pDWHNrWFdRQVRQTWswZEVzcEUwTmdaMUxNeTlSdUtIc2V5d3RMbVlKRXRfcGREZmxscXVpdE5lSTA" target="_blank" class="news-title">DB손보, 얼라인파트너스와 충돌…전문성 vs 감시 논쟁 - 데일리한국</a><div class="ai-comment">💡 행동주의 펀드 얼라인파트너스와 DB손보 이사회 간 주총 전 충돌 — 경영권 갈등이 중장기 전략 불확실성 야기 가능</div></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE9JSHo0OW1wZGRmUGdERFJYZmk2RFdxVHBlQmhNZ0c1U1JOWnVfWnpSY1h3MzBRWTBVTE8yZ1NRTkFuRjhNMzFYS0JSbHluVW9QVWR1UFdjMmU4aWc" target="_blank" class="news-title">DB손해보험 주총 격돌…행동주의·연기금 '표심 전쟁' - ekn.kr</a><div class="ai-comment">💡 주총에서 행동주의·연기금의 표결 주도권 경쟁 — 이사회 구성 변화 시 배당 정책·자본 운용 방향 영향 가능</div></div><div class="summary-box">📋 행동주의 주주와의 주총 갈등이 표면화. 결과에 따라 DB손보 경영 방향 변화 가능성. 신종자본증권 보유 측면에서 재무 정책 변화 모니터링 필요.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">건설공제조합</span> <span class="deal-type">채권</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE1uckVjYW5tc05EYTAzVko1cEJ1QzViYmlGczZReTlxM0lGUlZrZmtOeDMxQzN4NWhlWjhTYllqWnpqQ0o3ckZzbXE3dmFfRWxRZlp6d1hFbEdhNHlzRXAyTdIBeEFVX3lxTE8xVWdhRGtIV3BsQWNpUmtHODY2OEtQazVxeGtiTXoxSHdWZ1FROU0yRWJWTlFQZ3pLb3gtNW1aN0pYaGpLUUpEcjMwNlA1a1NFWTM5VmplOW8tZkVndmFCS1Q1SFBnU2VuRGNjMVctWDk2ZGFFd09YNg" target="_blank" class="news-title">선금 최대 50%로 환원…건설공제조합, 리스크 관리 정비 - 뉴시스</a><div class="ai-comment">💡 정부 선금 제도 개편에 맞춰 리스크 관리를 강화 — 조합 재무 건전성 유지 방향은 긍정적</div></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE9UUG9iUmplMzlUa3d2SmdMcUY1cXpYSEpnZ1l3X1FSNGpqeGtrZGZhT0ozMjRmcXFpazh5cWZEY3FhRl9KNUU3TjZFQ2k0NjR2a1pCRkc0YmlCRFJOaUFMZC1fLWQxa0tvNFE5Vw" target="_blank" class="news-title">건설공제조합, 정부 선금 제도 개편에 리스크 관리 강화 - 중소기업신문</a><div class="ai-comment">💡 건설공제조합이 정부 정책 변화에 선제적 대응 — 조합의 보증 리스크 관리 강화로 보유 채권 상환 안정성에 긍정적</div></div><div class="summary-box">📋 건설공제조합이 정부 선금 제도 변경에 맞춰 리스크 관리를 강화. 보증 리스크 관리 측면에서 채권 안전성에 긍정적 신호.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">솔루엠 RCPS ABL</span> <span class="deal-type">ABL</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE05b1dsbWtCSEMwb1pKM2Y3bHV2M3NXZ2Jnb3k1am5Vcm5jamxzbkRIdmtXQXZvR0lDck9LZ0MtNmFTVWlSOWJDUjdTd0VpRlE" target="_blank" class="news-title">日시장 확대나선 솔루엠…통합 자동화 솔루션 가속 [영상] - v.daum.net</a><div class="ai-comment">💡 솔루엠이 일본 자동화 솔루션 시장 확장에 적극 나섬 — 사업 성장세 지속으로 RCPS ABL 상환 능력에 긍정적</div></div><div class="summary-box">📋 솔루엠의 일본 시장 확장이 확인됨. 사업 성장 지속 여부는 RCPS ABL 상환 능력에 직결.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">대신증권 RCPS</span> <span class="deal-type">ABL</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE1zRk5WUl9vbHNrME5NbEl0azkzV19NbjdlX0pFUWZIWkx4bEdSVjV6cTJPVjcyYnVBamNDY3FXYVl1NWxRWHZRVUl2RzdLRy12ZEHSAVNBVV95cUxQVVZWLXg0SWFuREdVOWJhMnFDOEEwSVJFSm92MS1kcXJlWGNDSmJwTy0ycEdBNnpLcmZrVG9lVVNwN1VsZHdINkpfZTg0QmdvMnlGdw" target="_blank" class="news-title">대신증권, 정기 주주총회서 1535만 주 자사주 소각 확정 - 서울경제신문</a><div class="ai-comment">💡 주총에서 대규모 자사주 소각 확정 — 주주가치 제고 측면 긍정적이나 자본 감소 영향 점검 필요</div></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TdGpXTWRlYjBqY3F2SGZvOE5aTDNfRDl4T3JLV0JTaE9XSE1vWWd5bG5lYXJ5ckFOQlBWQldZUEk3dnhFeTRpV2N2bmpReEt0NmljZ3RB" target="_blank" class="news-title">패가망신 경고했는데…檢 전 대신증권 직원·기업인 '코스닥 주가조작' 구속 기소 [세상&amp;] - 헤럴드경제</a><div class="ai-comment">💡 전 직원의 주가조작 관련 구속 기소 — 회사 직접 연루는 아니나 내부통제 및 평판 리스크 점검 필요</div></div><div class="summary-box">📋 자사주 소각으로 주주환원 강화, 전 직원 주가조작 기소로 내부통제 평판 리스크 발생. 재무 직접 영향은 제한적이나 모니터링 유지.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">스타필드청라 ABL</span> <span class="deal-type">ABL</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1ncGFVRDgwM0JNWDBfckJjMjFpdW1Bd19YNEJPdUdRcE1NTzFVWVctMmhfaHVtYUxiYlpYdDAzTGpEeWpzdmdlUjVNREhJODJlcmpmMHl6LWFmQdIBX0FVX3lxTE1ETmxvV3hXQ0JRZjBpUUNZX3Zub2tVeDFvT0ZNWHdGcGI5QUhaX1djalQ3MW9wQWVMVEV2TV9taVJ1UFR2bEdNUldiUzZTNC15QWtyY01iSGx4YjFubzNF" target="_blank" class="news-title">정용진, '스타필드 청라' 현장점검 &quot;국가대표 랜드마크에 자부심·책임감&quot; - 경향신문</a><div class="ai-comment">💡 정용진 부회장이 스타필드 청라 현장을 직접 점검 — 개장 준비가 막바지 단계임을 시사, ABL 담보 자산 가치에 긍정적</div></div><div class="summary-box">📋 스타필드청라 개장 준비가 가시화됨. 개장 후 매출 실적이 ABL 원리금 상환 능력에 직결.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">LS증권 전환우선주 ABL</span> <span class="deal-type">ABL</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTFBmalpwLVVKelN6TWJBNVpoU2FMZUhkQXl5NTBRR3Z6SEYtWjkxdmwzVm80NGdiUWpSc2xIQkEwc00xSDViclZlUGVjR25Dd2lwaXdlRTh3aEJoZkpTNHc4" target="_blank" class="news-title">LS증권, 홍원식 대표이사 신규 선임…1주당 500원 배당금 결정 - 뉴스1</a><div class="ai-comment">💡 신규 대표이사 선임 및 배당 결정 — 경영진 교체로 전략 변화 가능성, 전환우선주 보유 측면에서 신규 경영진 성향 파악 필요</div></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE0zc25RVEVfSFB4TzJRdFRVb3NIWlBqdEZxYlRmd1VPRC01c1pFSTI2cnJqZEhKNkVMOEhHbHJrUFZ5ekdWeF9kZ3dkM0VoNzJQRW5CbXVWeXphV2Z4cHZ3R0thV19SZDlLOS1sc010Ql82dUk" target="_blank" class="news-title">LS증권, 26일 배당락 발생 - 마켓인</a><div class="ai-comment">💡 배당락 예정 — 우선주 배당이 정상 진행되는 것은 ABL 구조상 긍정적 신호</div></div><div class="summary-box">📋 LS증권 대표이사 교체 및 배당 결정. 신규 경영진의 재무 전략 방향을 모니터링하고 전환우선주 권리 행사 조건 재검토 권고.</div></div><div class="deal-card" style="border-left:4px solid #fd7e14;background:#fff8f0;"><div class="deal-header"><div><span class="deal-name">현대건설 (뉴스테이/보증)</span> <span class="deal-type">ABL/ABS</span></div><span class="importance-badge" style="background:#fd7e14">중간중요도</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1wNTJ0RFdvVVhxLUI3Z1dSUU5LNm5QNnBYX3NNckpVVHY0eF9hSWdsTEdnZE9RRi15RlEwd0hwcFpIUGJfWHVsZld1QlItOEVFMDgtOWdXVXNQMVloSWNCek5uUkMtY2JpbnlwdkpJWlRuMnM" target="_blank" class="news-title">현대건설 구리시 수택동 재개발 사업 수주, 1.9조 규모 - 비즈니스포스트</a><div class="ai-comment">💡 1.9조 규모 재개발 수주 확정 — 현대건설의 수주 잔고 증가는 보증 능력 유지에 긍정적</div></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5oNnFQZUUxTFhHQ2xtTlVqRzVkeGt0SXgwZktES1RQZ1lncG1vdXBaSHZpSjRjNjVJS1lTTUE1cHY1cXUwV19pMmZNbW1Lejl5R1JxRmtOc1pxcTg" target="_blank" class="news-title">원전株 거듭난 현대건설…설계 주도권 '숙제' - ekn.kr</a><div class="ai-comment">💡 원전 사업 수주 강화 추세 — 사업 다각화로 현대건설 신용도에 긍정적</div></div><div class="summary-box">📋 현대건설의 대규모 수주 지속 및 원전 사업 확대. 보증 능력 및 신용도 유지에 긍정적.</div></div>
-<div class="low-section"><div class="low-section-title">⚪ 특이사항 없음 (0개 딜)</div><div></div></div>
+  <div class="header">
+    <h1>📊 대체투자 포트폴리오 뉴스 모니터링</h1>
+    <p>2026년 03월 25일 | AI 분석 포함</p>
+    <div class="stats">
+      <div class="stat"><div class="num">4</div><div class="lbl">고중요도</div></div>
+      <div class="stat"><div class="num">17</div><div class="lbl">중간중요도</div></div>
+      <div class="stat"><div class="num">50</div><div class="lbl">특이사항없음</div></div>
+      <div class="stat"><div class="num">71</div><div class="lbl">전체 딜</div></div>
+    </div>
+  </div>
+  <h2 class="section-title" style="color:#dc3545;">🔴 고중요도</h2>
+    <div class="deal-card" style="border-left:4px solid #dc3545;">
+      <div class="deal-header">
+        <span class="deal-name">SK이노베이션</span>
+        <span class="deal-type">신종자본증권/인수금융</span>
+        <span class="importance-badge" style="background:#dc3545;">고중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://v.daum.net/v/20260324" target="_blank">'성장보다 생존'…SK이노베이션, 주총서 '재무 안정화 기조' 공식화</a>
+          <div class="ai-comment">💡 주총에서 '재무 안정화'를 공식 경영 기조로 선언. 신종자본증권 보유 관점에서 재무 방어 기조는 긍정적이나 성장 투자 위축 모니터링 필요.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://meconomynews.com/20260325" target="_blank">SK이노, 상법 개정 반영·이사회 중심 경영... 배당 중단</a>
+          <div class="ai-comment">💡 배당 중단 결정. 유동성 보전 목적으로 해석되나, 신종자본증권 이자 지급 능력에 대한 시장 신뢰 영향 주시 요망.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://zdnet.co.kr/20260324" target="_blank">SK이노, SK온 매각설 선 그어…"배터리 사업 의지 변함 없어"</a>
+          <div class="ai-comment">💡 SK온 매각설 공식 부인. 단기적 구조 변화 리스크 완화.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://etnews.com/20260323" target="_blank">SK이노베이션 E&S LNG수송선, 호주 바로사 LNG 보령터미널 첫 입항</a>
+          <div class="ai-comment">💡 E&S 부문 LNG 사업 가시화. 비배터리 부문 현금흐름 개선 긍정적.</div>
+        </div>
+      <div class="summary">📋 주총에서 배당 중단 및 재무 안정화 기조 공식화. SK온 매각설 부인. 인수금융·신종자본증권 보유 관점에서 재무 방어 기조는 긍정적이나, 배당 중단은 유동성 부담 신호로 지속 모니터링 필요.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #dc3545;">
+      <div class="deal-header">
+        <span class="deal-name">InfraBridge GIF II</span>
+        <span class="deal-type">인프라펀드 LP</span>
+        <span class="importance-badge" style="background:#dc3545;">고중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://kr.investing.com/20260312" target="_blank">ArcLight, InfraBridge 지분 인수 합의</a>
+          <div class="ai-comment">💡 ArcLight이 InfraBridge 지분 인수 합의. GP 변경 이슈로 펀드 운용 연속성, 투자전략 변화 여부 확인 필요.</div>
+        </div>
+      <div class="summary">📋 GP인 InfraBridge의 지분을 ArcLight이 인수 합의. LP 입장에서 GP 변경에 따른 펀드 운용 전략 변화, 잔여 투자 집행 계획, Exit 일정 등에 영향 가능. 관련 공문 수령 여부 및 GP측 설명 청취 필요.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #dc3545;">
+      <div class="deal-header">
+        <span class="deal-name">신세계건설</span>
+        <span class="deal-type">신종자본증권</span>
+        <span class="importance-badge" style="background:#dc3545;">고중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://alphaeconomy.co.kr/20260323" target="_blank">[현장] '3000억 순손실' 신세계건설, 재무지표 빨간불…대주주 이마트 '동반 부실' 우려</a>
+          <div class="ai-comment">💡 3000억 순손실로 재무지표 빨간불. 이마트와의 동반 부실 우려까지 언급. 신종자본증권 상환 능력에 직접적 위험 신호.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://fetv.co.kr/20260322" target="_blank">'상장폐지 1년' 신세계건설, 향후 수익구조 방향은</a>
+          <div class="ai-comment">💡 상장폐지 1년, 수익구조 개선 방향 불투명. 재무 부담 지속 우려.</div>
+        </div>
+      <div class="summary">📋 3000억원 순손실 및 재무지표 악화. 대주주 이마트와의 연계 부실 우려도 언급됨. 신종자본증권 보유 관점에서 신용 리스크가 크게 높아진 상황. 긴급 모니터링 및 대응 방안 검토 요망.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #dc3545;">
+      <div class="deal-header">
+        <span class="deal-name">현대건설 (뉴스테이/보증)</span>
+        <span class="deal-type">ABL/ABS</span>
+        <span class="importance-badge" style="background:#dc3545;">고중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://greenpostkorea.co.kr/20260324" target="_blank">현대건설, PF 보증 14조··· 브릿지론·기한이익상실 '이중 뇌관'</a>
+          <div class="ai-comment">💡 PF 보증 잔액 14조원, 브릿지론과 기한이익상실 동시 리스크 노출. 현대건설 보증 기반 ABL/ABS에 직접적 영향 가능성.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://news1.kr/20260313" target="_blank">현대건설, 네옴시티 터널 공사 계약 해지…"재무 손실 없어"</a>
+          <div class="ai-comment">💡 네옴시티 계약 해지. 수주잔고 감소 및 해외 사업 리스크 현실화.</div>
+        </div>
+      <div class="summary">📋 PF 보증 14조원 및 브릿지론·기한이익상실 이중 뇌관 보도. 현대건설 보증 기반 ABL/ABS 포지션에 대한 직접적 신용 리스크 점검 필요. 네옴시티 계약 해지도 확인.</div>
+    </div><h2 class="section-title" style="color:#fd7e14;">🟠 중간중요도</h2>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">효성화학 (효성 보증)</span>
+        <span class="deal-type">기업신용공여</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://bloter.net/20260325" target="_blank">효성화학, 베트남 자회사 지분 매각 '검토 단계' 유지</a>
+          <div class="ai-comment">💡 베트남 Hyosung Vina Chemicals 지분 매각 검토 지속. 자산 매각을 통한 유동성 확보 가능성.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://investchosun.com/20260319" target="_blank">SK하이닉스 다음은 변압기?…HD·효성·LS 3사 신용등급 상향 청신호</a>
+          <div class="ai-comment">💡 효성 계열 신용등급 상향 가능성 언급. 기업신용공여 관점에서 긍정적 신호.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://digitaltoday.co.kr/20260323" target="_blank">효성화학, 자회사 Hyosung Vina Chemicals 채무보증 결정</a>
+          <div class="ai-comment">💡 추가 채무보증으로 우발부채 증가. 효성화학 전반 보증 부담 확대.</div>
+        </div>
+      <div class="summary">📋 베트남 자회사 매각 검토 지속 및 채무보증 추가. 신용등급 상향 청신호는 긍정적. 효성 보증 기반 기업신용공여에 대한 계열 신용 리스크 모니터링 계속 필요.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">롯데지주 신종자본증권</span>
+        <span class="deal-type">신종자본증권</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://dongyangews.com/20260324" target="_blank">롯데지주, 국민연금 반대에도 '자사주 활용안' 주총 '통과'</a>
+          <div class="ai-comment">💡 자사주 활용 안건 통과. 향후 자사주 소각 또는 합병 등 활용 방안 주시.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://joongangeconomy.com/20260324" target="_blank">롯데지주 주총, 신동빈 회장 체제 유지…사업 구조조정 속도 낸다</a>
+          <div class="ai-comment">💡 신동빈 회장 체제 유지 및 구조조정 가속화 선언. 계열사 매각 등 재무 개선 시도 지속 예상.</div>
+        </div>
+      <div class="summary">📋 자사주 활용안 주총 통과 및 구조조정 가속화 방침. 신종자본증권 관점에서 지주사 재무구조 개선 노력은 긍정적이나, 구조조정 속도 및 실효성 모니터링 필요.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">에코비트</span>
+        <span class="deal-type">인수금융</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://pinpointnews.co.kr/20260315" target="_blank">태영건설 주가 5%대 강세... 에코비트 매각 및 폐기물 사업 가치 재조명</a>
+          <div class="ai-comment">💡 에코비트 매각 이슈 재부각. 매각 진행 시 인수금융 조기 상환 가능성 모니터링.</div>
+        </div>
+      <div class="summary">📋 에코비트 매각 및 폐기물 사업 가치 재조명 보도. 인수금융 보유 관점에서 매각 진행 여부에 따른 조기 상환 또는 차환 리스크 모니터링 필요.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">SK해운</span>
+        <span class="deal-type">인수금융</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://hayangtongsin.co.kr/20260325" target="_blank">SK해운, VLCC 2척·MR 탱커 1척 매각 추진</a>
+          <div class="ai-comment">💡 VLCC 2척 및 MR 탱커 1척 매각 추진. 자산 매각을 통한 부채 감축 시도. 인수금융 담보 자산 현황 확인 필요.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://hani.co.kr/20260324" target="_blank">호르무즈 해협에 발 묶인 국내 해운사 선박 8척…"대체항 협의 중"</a>
+          <div class="ai-comment">💡 호르무즈 리스크로 영업 환경 악화 가능성.</div>
+        </div>
+      <div class="summary">📋 선박 매각 추진 및 호르무즈 리스크 동시 노출. 담보 자산 변동 및 영업 현금흐름 영향 모니터링 요망.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">한화솔루션</span>
+        <span class="deal-type">인수금융/신종</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://ajunews.com/20260323" target="_blank">[특징주] 한화솔루션, 정관 변경에 대규모 유상증자 우려…9%대 약세</a>
+          <div class="ai-comment">💡 정관 변경으로 대규모 유상증자 우려, 주가 9% 급락. 기존 주주 희석 우려.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://maeil.co.kr/20260324" target="_blank">남정운 한화솔루션 대표이사 "2026년, 실적 턴어라운드 위해 총력"</a>
+          <div class="ai-comment">💡 실적 턴어라운드 의지 표명. PVC 사업 등 화학 부문 실적 회복 여부가 관건.</div>
+        </div>
+      <div class="summary">📋 유상증자 우려로 주가 급락. 실적 턴어라운드 의지는 표명했으나 추진 방향 및 재무 부담 지속 여부 모니터링 필요.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">보령엘엔지터미널</span>
+        <span class="deal-type">인수금융</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://hani.co.kr/20260323" target="_blank">커지는 중동발 LNG 불안에 주목되는 민간터미널</a>
+          <div class="ai-comment">💡 중동발 LNG 공급 불안으로 민간 LNG 터미널 전략적 가치 부각. 보령LNG터미널 중요성 재조명.</div>
+        </div>
+      <div class="summary">📋 중동 LNG 공급 불안으로 보령 민간터미널의 중요성 부각. 인수금융 보유 관점에서 자산 가치 상승 및 운영 안정성 긍정적.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">베인캐피탈 PD펀드 (Private Credit)</span>
+        <span class="deal-type">Private Credit LP</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://nate.com/20260324" target="_blank">월가 덮친 사모대출 '펀드런' 공포…美아폴로 환매 절반만 수용</a>
+          <div class="ai-comment">💡 아폴로 펀드 환매 요청 절반만 수용 사태. 글로벌 Private Credit 유동성 리스크 현실화.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://enegynews.co.kr/20260314" target="_blank">잘 나가던 사모대출 흔든 건 부실보다 유동성...'장기자산-단기환매'의 덫</a>
+          <div class="ai-comment">💡 사모대출 펀드 구조적 유동성 리스크 분석. 베인캐피탈 PD펀드 환매 조건 및 자산 유동성 점검 필요.</div>
+        </div>
+      <div class="summary">📋 글로벌 Private Credit 시장에서 유동성 리스크 및 펀드런 우려 현실화. 베인캐피탈 PD펀드 환매 조건 및 포트폴리오 자산 건전성 점검 권고.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">쌍용C&E (한앤컴퍼니)</span>
+        <span class="deal-type">PEF LP</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://v.daum.net/20260313" target="_blank">쌍용C&E 자회사 그린에코솔루션, 노앤·한투PE '2파전'으로</a>
+          <div class="ai-comment">💡 그린에코솔루션 매각 숏리스트 압축. 매각 성공 시 쌍용C&E 재무구조 개선.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://v.daum.net/20260314" target="_blank">[주간사모펀드] 한앤컴퍼니, 8년 만에 SK이터닉스 투자 '졸업'</a>
+          <div class="ai-comment">💡 GP 한앤컴퍼니의 Exit 역량 확인.</div>
+        </div>
+      <div class="summary">📋 자회사 그린에코솔루션 매각 2파전으로 압축. 매각 진행 시 쌍용C&E 재무 개선 기대. GP 한앤컴퍼니의 Exit 활동도 활발.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">아시아나항공 신종자본증권</span>
+        <span class="deal-type">신종자본증권</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://newstomato.com/20260324" target="_blank">(단독)대한항공, 6월 주총서 아시아나 잔여지분 인수 추진</a>
+          <div class="ai-comment">💡 대한항공이 6월 주총에서 아시아나 잔여지분 인수 추진. 합병 마무리 단계. 신종자본증권 인수 주체 변경 가능성 확인 필요.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://nate.com/20260319" target="_blank">금호건설 재무 트리거 된 '아시아나항공 지분'</a>
+          <div class="ai-comment">💡 금호건설 재무에서 아시아나 지분이 트리거 역할. 계열사 간 연계 리스크 주시.</div>
+        </div>
+      <div class="summary">📋 대한항공의 아시아나 잔여지분 인수 추진으로 합병 마무리 단계. 신종자본증권의 법적 지위 및 조건 변화 가능성 점검 필요.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">DB손해보험</span>
+        <span class="deal-type">신종자본증권</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://insujournal.co.kr/20260320" target="_blank">DB손보, 감사위원에 얼라인 측 민수아·DB측 이현승 선임</a>
+          <div class="ai-comment">💡 행동주의 주총 대결 결과 감사위원 1대1 균형 선임. 지배구조 갈등 지속 가능성.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://nate.com/20260324" target="_blank">[단독] DB손해보험, 보험업법 위반 과태료 750만원 제재</a>
+          <div class="ai-comment">💡 보험업법 위반 과태료 제재. 금액 소액이나 규제 리스크 발생.</div>
+        </div>
+      <div class="summary">📋 행동주의 주총 대결 결과 감사위원 1대1 균형 선임. 지배구조 불안정성 지속. 보험업법 위반 과태료 제재도 발생.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">교보생명</span>
+        <span class="deal-type">신종/ABL</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://donga.com/20260318" target="_blank">교보생명, SBI저축은행 경영권 인수… 금융위 대주주 변경 승인</a>
+          <div class="ai-comment">💡 SBI저축은행 인수 금융위 승인 완료. 지주사 전환을 위한 중요한 이정표 달성.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://hanstimes.co.kr/20260322" target="_blank">SBI저축銀 품은 교보생명…지주사 전환·IPO 속도 붙나</a>
+          <div class="ai-comment">💡 지주사 전환 및 IPO 가속화 전망. FI 지분 관련 상황 변화 모니터링 필요.</div>
+        </div>
+      <div class="summary">📋 SBI저축은행 인수 금융위 승인 완료로 지주사 전환 가속화. 교보생명 ABL/신종 보유 관점에서 지배구조 변화 및 FI 관계 변동 여부 지속 모니터링.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">SK온 PRS</span>
+        <span class="deal-type">PRS</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://zdnet.co.kr/20260324" target="_blank">SK이노, SK온 매각설 선 그어…"배터리 사업 의지 변함 없어"</a>
+          <div class="ai-comment">💡 SK온 매각설 공식 부인. 단기적으로 PRS 안정성 확인되나, SK이노베이션 재무 상황 지속 모니터링 필요.</div>
+        </div>
+      <div class="summary">📋 SK온 매각설 공식 부인으로 단기 PRS 리스크 완화. 그러나 SK이노베이션의 배당 중단 및 재무 안정화 기조를 감안할 때 PRS 상환 재원 확보 능력 주시 필요.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">SK TRS계약</span>
+        <span class="deal-type">ABB</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://market.kr/20260321" target="_blank">배당 급감·우발채무 4조…SK㈜, 싸늘해진 금리 눈높이</a>
+          <div class="ai-comment">💡 SK㈜ 배당 급감 및 우발채무 4조원. TRS 계약 상대방 신용 리스크 점검 필요.</div>
+        </div>
+      <div class="summary">📋 SK㈜의 배당 급감 및 우발채무 4조원 보도. TRS 계약 구조상 SK㈜ 주가 및 재무 건전성이 직결되므로 긴밀한 모니터링 필요.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">SSG닷컴 ABL</span>
+        <span class="deal-type">ABL</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://bridgeeconomy.co.kr/20260323" target="_blank">적자폭 늘어난 SSG닷컴·G마켓… 쿠팡사태 수혜는 '아직'</a>
+          <div class="ai-comment">💡 적자폭 확대 및 쿠팡 사태 수혜 미미. ABL 담보 자산인 SSG닷컴 실적 악화 지속.</div>
+        </div>
+      <div class="summary">📋 SSG닷컴 적자 확대 및 경쟁 우위 회복 지연. ABL 담보 자산으로서의 SSG닷컴 신용 리스크 점진적 증가.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">스타필드청라 ABL</span>
+        <span class="deal-type">ABL</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://chosun.com/20260324" target="_blank">정용진, '스타필드 청라' 현장 점검…"세계 최초 멀티 스타디움, 최고 품질 갖춰야"</a>
+          <div class="ai-comment">💡 정용진 회장 현장 점검. 2027년 말 준공 일정 유지 의지 확인.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://incheontoday.com/20260324" target="_blank">[인천TV] 인천 청라 스타필드 멀티스타디움 공정률 40% 2027년 말 준공 목표</a>
+          <div class="ai-comment">💡 공정률 40% 확인. ABL 상환 일정과의 부합 여부 재확인 권고.</div>
+        </div>
+      <div class="summary">📋 공정률 40%, 2027년 말 준공 목표 공식 확인. ABL 만기 및 상환 재원 확보 계획과의 정합성 점검 권고.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">LS증권 전환우선주 ABL</span>
+        <span class="deal-type">ABL</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://bloter.net/20260325" target="_blank">LS증권, PF 관련 100억대 소송 피소</a>
+          <div class="ai-comment">💡 PF 관련 100억대 소송 피소. ABL 담보로서의 LS증권 신용에 소송 리스크 추가.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://news.einfomax.co.kr/20260324" target="_blank">LS증권, 홍원식 신임 대표 선임…"증권사 본질 역량 회복할 것"</a>
+          <div class="ai-comment">💡 홍원식 신임 대표 선임. 리더십 교체 초기 불확실성 유의.</div>
+        </div>
+      <div class="summary">📋 PF 관련 100억대 소송 피소 및 신임 대표 선임. ABL 담보 신용 리스크 점검 및 소송 진행 상황 모니터링 필요.</div>
+    </div>
+    <div class="deal-card" style="border-left:4px solid #fd7e14;">
+      <div class="deal-header">
+        <span class="deal-name">CJ제일제당 (보증 대출)</span>
+        <span class="deal-type">ABL/ABS</span>
+        <span class="importance-badge" style="background:#fd7e14;">중간중요도</span>
+      </div>
+      
+        <div class="news-item">
+          <a href="https://nate.com/20260325" target="_blank">CJ제일제당, 대표이사 변경…윤석환 신임 선임</a>
+          <div class="ai-comment">💡 대표이사 교체. 경영 안정성 및 전략 변화 여부 모니터링.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://digipost.co.kr/20260319" target="_blank">-4170억, -3031억, -3024억 … CJ제일제당·대상·삼양사, 적자로 둔갑</a>
+          <div class="ai-comment">💡 CJ제일제당 대규모 적자 확인. 보증 대출 관점에서 재무 건전성 악화 신호.</div>
+        </div>
+        <div class="news-item">
+          <a href="https://v.daum.net/20260324" target="_blank">CJ제일제당, 주총서 주주들에게 담합 사과</a>
+          <div class="ai-comment">💡 담합 관련 사과. 규제 리스크 및 과징금 부담 지속 가능성.</div>
+        </div>
+      <div class="summary">📋 대규모 적자, 대표이사 교체, 담합 사과 3중 이슈 동시 발생. 보증 대출 보유 관점에서 CJ제일제당 신용 모니터링 강화 필요.</div>
+    </div><h2 class="section-title" style="color:#6c757d;">⚪ 특이사항 없음</h2><div class="low-list">일본 ESS 에쿼티 투자, 대승엔지니어링 (모듈러스쿨), 성수동 오피스빌딩, 에어퍼스트, GS파워, SK마이크로웍스, 티맥스소프트, 한국플랜트서비스, H사 특수가스사업부, LS Global Greenway 블라인드펀드 (영국 ESS), SK루브리컨츠 (아이엠엠에코솔루션), KT클라우드, Brookfield 인프라, IMM Infra 9호, 이에스지리더스 PEF, 하이컨시 RCPS, KKR RECOP II, Vantage Group (수송인프라), HL만도/HL클레무브, SK인천석유화학, 코오롱인더스트리, HD현대오일뱅크, 농협생명보험, KB생명보험, 한화생명보험, 현대카드, 현대해상, 솔루엠 RCPS ABL, LG에너지솔루션 PRS ABL, 대신증권 RCPS, SK넥실리스 (보증 ABS), 건설공제조합, 우리금융지주, (주)한화 보증 ABL, KB증권 DLB, 서초동 서리풀 복합시설, 부천 삼정동 데이터센터, 독일 뒤셀도르프 보다폰 오피스, 뉴욕 10 Hudson Yards, DC Value Recovery Fund IV, 에미레이트 B777 항공기, GECAS 항공기 포트폴리오, KIAMCO 유럽 Cookware, KIAMCO 태양광펀드, 일본 야마구치 태양광, Bayfront 인프라대출, BAC (Bank of America), 대구그린파워, 웰릭스 NPL, 베리타스 NPL</div>
+  <div class="footer">본 리포트는 AI가 자동 생성한 뉴스 브리핑입니다. 투자 결정 전 원문 및 추가 검토를 권장합니다.</div>
 </div>
-<div class="footer">본 리포트는 AI가 자동 수집·분석한 뉴스 브리핑입니다. 투자 판단 시 원문 뉴스 및 공식 자료를 반드시 확인하시기 바랍니다.<br>생성 시각: 2026-03-25 19:52 KST</div>
 </body>
 </html>
